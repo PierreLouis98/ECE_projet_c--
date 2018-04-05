@@ -299,6 +299,11 @@ class GraphInterface
         grman::WidgetButton m_bouton6;
         grman::WidgetText m_bouton_label6;
 
+           ///SEPTIEME BOUTTON
+        grman::WidgetBox m_boite7;
+        grman::WidgetButton m_bouton7;
+        grman::WidgetText m_bouton_label7;
+
         // A compléter éventuellement par des widgets de décoration ou
         // d'édition (boutons ajouter/enlever ...)
 
@@ -354,6 +359,7 @@ class Graph
         void ajouter_sommet();
         void ajouter_arete();
         void afficher_les_sommets();
+        void test_remove_edge(int eidx);
 
 };
 
