@@ -34,6 +34,8 @@ int main()
     grman::fermer_allegro();
 
     return 0;
+
+// yooooooooooooooooo
 }
 END_OF_MAIN();
 
