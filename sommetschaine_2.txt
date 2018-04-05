@@ -6,6 +6,6 @@
 5 30 238 404 phoque.jpg
 6 60 417 316 morse.jpg
 7 50 713 260 macareux.jpg
-8 0 635 416 renard-nordique.jpg
-9 100 417 596 ours-blanc.jpg
+8 0 635 416 renard-arctique.jpg
+9 100 417 596 ours-polaire.jpg
 10 100 730 610 inuit.jpg
