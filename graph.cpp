@@ -293,28 +293,13 @@ void Graph::update()
         elt.second.post_update();
 
     // AJOUTER UN SOMMET
-   /* if ( m_bouton3.clicked() )
+
+    if ( m_interface->m_bouton3.clicked() )
     {
         std::cout << "NEW !" << std::endl;
-
-        add_interfaced_vertex(8,0,rand()%100+10,rand()%100+110,"papillon.jpg");
-
-        /// Expérimental, ajout dynamique d'éléments, ATTENTION ICI ALLOCATION
-        /// PK UNE ALLOC ?
-      ///  grman::WidgetImage * som = new grman::WidgetImage(); // On pourrait déclarer auto ...
-    //  VertexInterface *som(8,rand()%100+10,rand()%100+110,"papillon.jpg",0) = new VertexInterface();
-        /// ON MET A JOUR LA MAP DE SOMMET
-    //    m_vertices.push(som);
-        /// ON AJOUTE UN SOMMET
-     //   m_top_box.add_child( *som );
-        /// REMPLIR SES ATTRIBUTS
-     //   som->set_pic_name("crusty_xx4xx.png");
-     //   som->set_pos(rand()%100+10, rand()%100+110 );
-
-        /// Mise à jour du nombre de clowns dynamiques sur le label du lien
-      //  m_lien2_label.set_message( std::to_string( m_dynaclowns.size() ) );
+        ajouter_sommet();
     }
-*/
+
 }
 
 /// Aide à l'ajout de sommets interfacés
@@ -433,7 +418,22 @@ void Graph::ecriture_edge(std::string nom_fichier)
         std::cout<<"error : "<<nom_fichier<<std::endl;
 }
 
-void Graph::gestion_du_temps()
+void Graph::ajouter_sommet()
 {
+int sommet_max=-1;
+std::string espece;
+
+
+       for (const auto& elem : m_vertices)
+        {
+            if (elem.first>sommet_max)
+                sommet_max=elem.first;
+        }
+
+        std::cout << sommet_max << std::endl;
+        std::cout << "choisissez une espece"<< std::endl;
+std::cin>> espece ;
+
+        add_interfaced_vertex(sommet_max+1,50,20,20,espece+".jpg");
 
 }
