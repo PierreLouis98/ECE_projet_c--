@@ -14,8 +14,8 @@ int main()
     /// Un exemple de graphe
     Graph g;
 
-   g.lecture_vertex("sommetschaine_1.txt");
-   g.lecture_edge("areteschaine_1.txt");
+   g.lecture_vertex("sommetschaine_2.txt");
+   g.lecture_edge("areteschaine_2.txt");
 
 
     /// Vous gardez la main sur la "boucle de jeu"
@@ -29,6 +29,8 @@ int main()
         grman::mettre_a_jour();
     }
 
+    g.ecriture_vertex("sommetschaine_2.txt");
+    g.ecriture_edge("areteschaine_2.txt");
     grman::fermer_allegro();
 
     return 0;

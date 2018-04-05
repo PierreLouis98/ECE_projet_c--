@@ -302,6 +302,7 @@ class GraphInterface
         // Le constructeur met en place les éléments de l'interface
         // voir l'implémentation dans le .cpp
         GraphInterface(int x, int y, int w, int h);
+
 };
 
 
@@ -342,8 +343,8 @@ class Graph
         void lecture_vertex(std::string nom_fichier);
         void lecture_edge(std::string nom_fichier);
 
-        void ecriture_vertex();
-        void ecriture_edge();
+        void ecriture_vertex(std::string nom_fichier);
+        void ecriture_edge(std::string nom_fichier);
 
 };
 

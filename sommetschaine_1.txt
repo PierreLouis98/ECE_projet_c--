@@ -1,7 +1,5 @@
-0 30.0 200 100 renard.jpg
-1 60.0 400 100 rouge-gorge.jpg
-3 50.0 400 300 papillon.jpg
-2 0.0 200 300 araignee.jpg
-4 100.0 600 300 vegetaux.jpg
-
- gros kaka
+0 30 42 35 renard.jpg
+1 60 622 67 rouge-gorge.jpg
+2 0 53 335 araignee.jpg
+3 50 432 484 papillon.jpg
+4 100 731 522 vegetaux.jpg

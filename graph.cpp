@@ -292,6 +292,29 @@ void Graph::update()
     for (auto &elt : m_edges)
         elt.second.post_update();
 
+    // AJOUTER UN SOMMET
+   /* if ( m_bouton3.clicked() )
+    {
+        std::cout << "NEW !" << std::endl;
+
+        add_interfaced_vertex(8,0,rand()%100+10,rand()%100+110,"papillon.jpg");
+
+        /// Expérimental, ajout dynamique d'éléments, ATTENTION ICI ALLOCATION
+        /// PK UNE ALLOC ?
+      ///  grman::WidgetImage * som = new grman::WidgetImage(); // On pourrait déclarer auto ...
+    //  VertexInterface *som(8,rand()%100+10,rand()%100+110,"papillon.jpg",0) = new VertexInterface();
+        /// ON MET A JOUR LA MAP DE SOMMET
+    //    m_vertices.push(som);
+        /// ON AJOUTE UN SOMMET
+     //   m_top_box.add_child( *som );
+        /// REMPLIR SES ATTRIBUTS
+     //   som->set_pic_name("crusty_xx4xx.png");
+     //   som->set_pos(rand()%100+10, rand()%100+110 );
+
+        /// Mise à jour du nombre de clowns dynamiques sur le label du lien
+      //  m_lien2_label.set_message( std::to_string( m_dynaclowns.size() ) );
+    }
+*/
 }
 
 /// Aide à l'ajout de sommets interfacés
@@ -370,6 +393,42 @@ void Graph::lecture_edge(std::string nom_fichier)
         }
         fichier.close();
     }
+    else
+        std::cout<<"error : "<<nom_fichier<<std::endl;
+}
+
+
+void Graph::ecriture_vertex(std::string nom_fichier)
+{
+    std::ofstream fichier(nom_fichier, std::ios::out | std::ios::trunc);
+    if(fichier)
+    {
+        for (const auto& elem : m_vertices)
+        {
+            fichier<< elem.first<<" "<<elem.second.m_value<<" "<<elem.second.m_interface->m_top_box.get_posx()<<" "<<elem.second.m_interface->m_top_box.get_posy()<<" "<<elem.second.m_interface->m_img.get_pic_name()<<std::endl;
+        }
+
+        fichier.close();
+    }
+
+    else
+        std::cout<<"error : "<<nom_fichier<<std::endl;
+}
+
+void Graph::ecriture_edge(std::string nom_fichier)
+{
+    std::ofstream fichier(nom_fichier, std::ios::out | std::ios::trunc);
+    if(fichier)
+    {
+        for (const auto& elem : m_edges)
+        {
+            fichier<< elem.first<<" "<<elem.second.m_from<<" "<<elem.second.m_to<<" "<<elem.second.m_weight<< std::endl;
+            std::cout<<"ok"<<std::endl;
+        }
+
+        fichier.close();
+    }
+
     else
         std::cout<<"error : "<<nom_fichier<<std::endl;
 }

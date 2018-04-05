@@ -149,6 +149,7 @@ void mettre_a_jour()
 
     gui_last_over = gui_over;
     gui_over = gui_focus;
+
 }
 
 

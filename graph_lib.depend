@@ -113,3 +113,60 @@
 	<iostream>
 	"graph.h"
 
+1522933222 source:c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\grman\coords.cpp
+	"coords.h"
+
+1522933222 c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\grman\coords.h
+	<cmath>
+
+1522937500 source:c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522933222 c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522933222 c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\grman\grman_couleurs.h
+
+1522941211 c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522933222 source:c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\grman\widget.cpp
+	"widget.h"
+
+1522941275 source:c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522941211 c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	<iostream>
+	"grman/grman.h"
+
+1522941211 source:c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\graph.cpp
+	"graph.h"
+
