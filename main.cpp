@@ -31,6 +31,7 @@ int main()
 
     g.ecriture_vertex("sommetschaine_2.txt");
     g.ecriture_edge("areteschaine_2.txt");
+
     grman::fermer_allegro();
 
     return 0;
