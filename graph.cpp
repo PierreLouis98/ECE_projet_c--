@@ -432,3 +432,8 @@ void Graph::ecriture_edge(std::string nom_fichier)
     else
         std::cout<<"error : "<<nom_fichier<<std::endl;
 }
+
+void Graph::gestion_du_temps()
+{
+
+}

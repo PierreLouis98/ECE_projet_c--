@@ -346,6 +346,8 @@ class Graph
         void ecriture_vertex(std::string nom_fichier);
         void ecriture_edge(std::string nom_fichier);
 
+        void gestion_du_temps();
+
 };
 
 
