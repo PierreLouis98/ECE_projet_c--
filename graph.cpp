@@ -229,7 +229,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton5.set_bg_color(FUCHSIA);
 
     m_bouton5.add_child(m_bouton_label5);
-    m_bouton_label5.set_message("ceci est une modification temporaire");
+    m_bouton_label5.set_message("OPEN 3");
 
 
 }
