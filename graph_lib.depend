@@ -170,3 +170,60 @@
 1522947930 source:c:\users\pierr\documents\kesuke_miyagi\dexter_jettster\graph.cpp
 	"graph.h"
 
+1522951531 source:c:\users\josep\desktop\anakin\graph.cpp
+	"graph.h"
+
+1522951054 c:\users\josep\desktop\anakin\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	<iostream>
+	"grman/grman.h"
+
+1522948895 c:\users\josep\desktop\anakin\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522948895 c:\users\josep\desktop\anakin\grman\grman_couleurs.h
+
+1522948895 c:\users\josep\desktop\anakin\grman\coords.h
+	<cmath>
+
+1522948895 c:\users\josep\desktop\anakin\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522948895 source:c:\users\josep\desktop\anakin\grman\coords.cpp
+	"coords.h"
+
+1522948895 source:c:\users\josep\desktop\anakin\grman\widget.cpp
+	"widget.h"
+
+1522948895 source:c:\users\josep\desktop\anakin\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522949270 source:c:\users\josep\desktop\anakin\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+

@@ -232,6 +232,23 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_label5.set_message("OPEN 3");
 
 
+ /// SIXIEME BOUTTON CASE:
+       /// On ajoute en haut à droite la boite à boutons
+    m_top_box.add_child( m_boite6 );
+    m_boite6.set_dim(140,30);
+    m_boite6.set_pos(850,50);
+    m_boite6.set_bg_color(FUCHSIACLAIR);
+
+    /// Puis un 1er bouton avec un texte
+    m_boite6.add_child( m_bouton6);
+    m_bouton6.set_frame(3,3,140,30);
+    m_bouton6.set_bg_color(FUCHSIA);
+
+    m_bouton6.add_child(m_bouton_label6);
+    m_bouton_label6.set_message("AJOUTER UNE ARETE");
+
+
+
 }
 
 
@@ -299,6 +316,13 @@ void Graph::update()
         std::cout << "NEW !" << std::endl;
         ajouter_sommet();
     }
+
+        if ( m_interface->m_bouton6.clicked() )
+    {
+        std::cout << "NEW !" << std::endl;
+        ajouter_arete();
+    }
+
 
 }
 
@@ -430,10 +454,49 @@ std::string espece;
                 sommet_max=elem.first;
         }
 
-        std::cout << sommet_max << std::endl;
         std::cout << "choisissez une espece"<< std::endl;
+        afficher_les_sommets();
 std::cin>> espece ;
 
         add_interfaced_vertex(sommet_max+1,50,20,20,espece+".jpg");
+
+}
+
+
+void Graph::ajouter_arete()
+{
+    int arete_max=-1;
+int predateur;
+int proie;
+
+
+        for (const auto& elem : m_edges)
+        {
+
+                if (elem.first>arete_max)
+                arete_max=elem.first;
+        }
+
+afficher_les_sommets();
+
+        std::cout << "PREDATEUR :"<< std::endl;
+std::cin>> predateur ;
+        std::cout << "PROIE"<< std::endl;
+std::cin>> proie ;
+
+
+add_interfaced_edge(arete_max,predateur, proie-1,50);
+}
+
+void Graph::afficher_les_sommets()
+  {
+      int  i=0;
+     std::string chaine;
+       for (const auto& elem : m_vertices)
+        {
+            chaine=elem.second.m_interface->m_img.get_pic_name();
+            std::cout<<i << " " << chaine<<std::endl;
+            i++;
+        }
 
 }
