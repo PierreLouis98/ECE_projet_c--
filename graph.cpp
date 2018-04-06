@@ -319,8 +319,14 @@ Graph::~Graph()
 
 }
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-void Graph::update()
+void Graph::update(std::string choixfichiersom,std::string choixfichierare)
 {
+
+    std::string fichiersommet1="sommetschaine_1.txt";
+    std::string fichierarete1="areteschaine_1.txt";
+    std::string fichiersommet2="sommetschaine_2.txt";
+    std::string fichierarete2="areteschaine_2.txt";
+
     if (!m_interface)
         return;
 
@@ -339,6 +345,12 @@ void Graph::update()
         elt.second.post_update();
 
     // AJOUTER UN SOMMET
+
+    if (m_interface->m_bouton.clicked())
+    {
+        ecriture_vertex(choixfichiersom);
+        ecriture_edge(choixfichierare);
+    }
 
     if ( m_interface->m_bouton3.clicked() )
     {
@@ -363,14 +375,16 @@ void Graph::update()
 
     if(m_interface->m_bouton2.clicked())
     {
-
+        m_edges.clear();
+        m_vertices.clear();
         lecture_vertex(fichiersommet1);
         lecture_edge(fichierarete1);
     }
 
     if(m_interface->m_bouton4.clicked())
     {
-
+        m_edges.clear();
+        m_vertices.clear();
 
         lecture_vertex(fichiersommet2);
         lecture_edge(fichierarete2);
@@ -378,6 +392,9 @@ void Graph::update()
 
     if(m_interface->m_bouton5.clicked())
     {
+
+
+
         lecture_vertex(fichiersommet2);
         lecture_edge(fichierarete2);
     }
@@ -388,6 +405,20 @@ void Graph::update()
         std::cout<< "Indice du sommet a sup: ";
         std::cin>> sommet;
         remove_vertex(sommet);
+    }
+
+    if (m_interface->m_bouton2.clicked())
+    {
+        choixfichiersom=fichiersommet1;
+        choixfichierare=fichierarete1;
+
+    }
+
+    if (m_interface->m_bouton4.clicked())
+    {
+        choixfichiersom=fichiersommet2;
+        choixfichierare=fichierarete2;
+
     }
 
 
@@ -592,12 +623,12 @@ void Graph::remove_edge(int eidx)
 /// référence vers le Edge à enlever
     Edge &remed=m_edges.at(eidx);
 
-   // std::cout << "Removing edge " << eidx << " " << remed.m_from << "->" << remed.m_to << " " << remed.m_weight << std::endl;
+    // std::cout << "Removing edge " << eidx << " " << remed.m_from << "->" << remed.m_to << " " << remed.m_weight << std::endl;
 
 /// Tester la cohérence : nombre d'arc entrants et sortants des sommets 1 et 2
-  //  std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
-   // std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to].m_out.size() << std::endl;
-   // std::cout << m_edges.size() << std::endl;
+    //  std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
+    // std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to].m_out.size() << std::endl;
+    // std::cout << m_edges.size() << std::endl;
 
 /// test : on a bien des éléments interfacés
     if (m_interface && remed.m_interface)
@@ -625,9 +656,9 @@ void Graph::remove_edge(int eidx)
     m_edges.erase( eidx );
 
 /// Tester la cohérence : nombre d'arc entrants et sortants des sommets 1 et 2
-   // std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
-   // std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to].m_out.size() << std::endl;
-   // std::cout << m_edges.size() << std::endl;
+    // std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
+    // std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to].m_out.size() << std::endl;
+    // std::cout << m_edges.size() << std::endl;
 
 }
 
@@ -637,7 +668,7 @@ void Graph::remove_vertex(int idx)
 {
     for(int i=0; i<m_vertices.find(idx)->second.m_in.size(); i++)
     {
-std::cout << i << std::endl ;
+        std::cout << i << std::endl ;
         remove_edge( m_vertices.find(idx)->second.m_in[i] );
 
 

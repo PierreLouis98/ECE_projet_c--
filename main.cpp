@@ -16,8 +16,16 @@ int main()
 
 
 
-    g.lecture_vertex("sommetschaine_2.txt");
-    g.lecture_edge("areteschaine_2.txt");
+    int choix;
+    std::string choixsommet;
+    std::string choixarete;
+
+    choixsommet="sommetschaine_2.txt";
+    choixarete="areteschaine_2.txt";
+
+
+    g.lecture_vertex(choixsommet);
+    g.lecture_edge(choixarete);
 //g.m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
 
     /// Vous gardez la main sur la "boucle de jeu"
@@ -25,14 +33,18 @@ int main()
     while ( !key[KEY_ESC] )
     {
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-        g.update();
+
+        g.update(choixsommet, choixarete);
+
 
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();
+
+
+
     }
 
-//  g.ecriture_vertex("sommetschaine_2.txt");
-//   g.ecriture_edge("areteschaine_2.txt");
+
 
     grman::fermer_allegro();
 
