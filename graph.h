@@ -359,7 +359,7 @@ public:
     ~Graph();
 
     /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-    void update();
+    void update(std::string choixfichiersom,std::string choixfichierare);
 
     void lecture_vertex(std::string nom_fichier);
     void lecture_edge(std::string nom_fichier);
