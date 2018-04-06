@@ -304,7 +304,7 @@ private :
     grman::WidgetButton m_bouton7;
     grman::WidgetText m_bouton_label7;
 
-        ///HUITIEME BOUTTON
+    ///HUITIEME BOUTTON
     grman::WidgetBox m_boite8;
     grman::WidgetButton m_bouton8;
     grman::WidgetText m_bouton_label8;

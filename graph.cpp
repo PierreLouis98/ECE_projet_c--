@@ -14,7 +14,7 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, in
 
     // Le slider de réglage de valeur
     m_top_box.add_child( m_slider_value );
-    m_slider_value.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+    m_slider_value.set_range(0.0, 100.0);  // Valeurs arbitraires, à adapter...
     m_slider_value.set_dim(20,80);
     m_slider_value.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
 
@@ -98,7 +98,7 @@ EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
 
     // Le slider de réglage de valeur
     m_box_edge.add_child( m_slider_weight );
-    m_slider_weight.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+    m_slider_weight.set_range(0.0, 100.0);  // Valeurs arbitraires, à adapter...
     m_slider_weight.set_dim(16,40);
     m_slider_weight.set_gravity_y(grman::GravityY::Up);
 
@@ -157,7 +157,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 
     // TEST
 /// PREMIERE CASE:
-       /// On ajoute en haut à droite la boite à boutons
+    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite );
     m_boite.set_dim(50,40);
     m_boite.set_pos(12,12);
@@ -172,7 +172,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_label.set_message("SAVE");
 
 /// SECONDE CASE:
-       /// On ajoute en haut à droite la boite à boutons
+    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite2 );
     m_boite2.set_dim(50,40);
     m_boite2.set_pos(12,62);
@@ -187,7 +187,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_label2.set_message("OPEN 1 ");
 
 /// TROISIEME CASE:
-       /// On ajoute en haut à droite la boite à boutons
+    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite3 );
     m_boite3.set_dim(140,30);
     m_boite3.set_pos(850,10);
@@ -202,7 +202,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_label3.set_message("AJOUTER UN SOMMET");
 
 /// QUATRIEME CASE:
-       /// On ajoute en haut à droite la boite à boutons
+    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite4 );
     m_boite4.set_dim(50,40);
     m_boite4.set_pos(12,112);
@@ -217,7 +217,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_label4.set_message("OPEN 2");
 
 /// CINQUIEME CASE:
-       /// On ajoute en haut à droite la boite à boutons
+    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite5 );
     m_boite5.set_dim(50,40);
     m_boite5.set_pos(12,162);
@@ -232,8 +232,8 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_label5.set_message("OPEN 3");
 
 
- /// SIXIEME BOUTTON CASE:
-       /// On ajoute en haut à droite la boite à boutons
+/// SIXIEME BOUTTON CASE:
+    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite6 );
     m_boite6.set_dim(140,30);
     m_boite6.set_pos(850,50);
@@ -246,8 +246,8 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton6.add_child(m_bouton_label6);
     m_bouton_label6.set_message("AJOUTER UNE ARETE");
 
-     /// SEPTIEME BOUTTON CASE:
-       /// On ajoute en haut à droite la boite à boutons
+    /// SEPTIEME BOUTTON CASE:
+    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite7 );
     m_boite7.set_dim(140,30);
     m_boite7.set_pos(850,90);
@@ -260,8 +260,8 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton7.add_child(m_bouton_label7);
     m_bouton_label7.set_message("SUPPRIMER UNE ARETE");
 
-     /// HUITIEME BOUTTON CASE:
-       /// On ajoute en haut à droite la boite à boutons
+    /// HUITIEME BOUTTON CASE:
+    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite8 );
     m_boite8.set_dim(140,30);
     m_boite8.set_pos(850,130);
@@ -346,48 +346,48 @@ void Graph::update()
         ajouter_sommet();
     }
 
-        if ( m_interface->m_bouton6.clicked() )
+    if ( m_interface->m_bouton6.clicked() )
     {
         std::cout << "NEW !" << std::endl;
         ajouter_arete();
     }
 
-        if ( m_interface->m_bouton7.clicked() )
+    if ( m_interface->m_bouton7.clicked() )
     {
-    int choix;
-            std::cout << "quelle arete voulez vous supprimer ? " << std::endl;
-            std::cin >>choix;
-            remove_edge(choix);
+        int choix;
+        std::cout << "quelle arete voulez vous supprimer ? " << std::endl;
+        std::cin >>choix;
+        remove_edge(choix);
 
     }
 
     if(m_interface->m_bouton2.clicked())
     {
 
-            lecture_vertex(fichiersommet1);
-            lecture_edge(fichierarete1);
+        lecture_vertex(fichiersommet1);
+        lecture_edge(fichierarete1);
     }
 
-        if(m_interface->m_bouton4.clicked())
+    if(m_interface->m_bouton4.clicked())
     {
 
 
-            lecture_vertex(fichiersommet2);
-            lecture_edge(fichierarete2);
+        lecture_vertex(fichiersommet2);
+        lecture_edge(fichierarete2);
     }
 
-            if(m_interface->m_bouton5.clicked())
+    if(m_interface->m_bouton5.clicked())
     {
-            lecture_vertex(fichiersommet2);
-            lecture_edge(fichierarete2);
+        lecture_vertex(fichiersommet2);
+        lecture_edge(fichierarete2);
     }
 
-            if(m_interface->m_bouton8.clicked())
+    if(m_interface->m_bouton8.clicked())
     {
-                int sommet;
-            std::cout<< "Indice du sommet a sup: ";
-            std::cin>> sommet;
-            remove_vertex(sommet);
+        int sommet;
+        std::cout<< "Indice du sommet a sup: ";
+        std::cin>> sommet;
+        remove_vertex(sommet);
     }
 
 
@@ -513,21 +513,21 @@ void Graph::ecriture_edge(std::string nom_fichier)
 
 void Graph::ajouter_sommet()
 {
-int sommet_max=-1;
-std::string espece;
+    int sommet_max=-1;
+    std::string espece;
 
 
-       for (const auto& elem : m_vertices)
-        {
-            if (elem.first>sommet_max)
-                sommet_max=elem.first;
-        }
+    for (const auto& elem : m_vertices)
+    {
+        if (elem.first>sommet_max)
+            sommet_max=elem.first;
+    }
 
-        std::cout << "choisissez une espece"<< std::endl;
-        afficher_les_sommets();
-std::cin>> espece ;
+    std::cout << "choisissez une espece"<< std::endl;
+    afficher_les_sommets();
+    std::cin>> espece ;
 
-        add_interfaced_vertex(sommet_max+1,50,20,20,espece+".jpg");
+    add_interfaced_vertex(sommet_max+1,50,20,20,espece+".jpg");
 
 }
 
@@ -535,42 +535,42 @@ std::cin>> espece ;
 void Graph::ajouter_arete()
 {
     int arete_max=-1;
-int predateur;
-int proie;
+    int predateur;
+    int proie;
 
 
-        for (const auto& elem : m_edges)
-        {
+    for (const auto& elem : m_edges)
+    {
 
-                if (elem.first>arete_max)
-                arete_max=elem.first;
-        }
+        if (elem.first>arete_max)
+            arete_max=elem.first;
+    }
 
-afficher_les_sommets();
+    afficher_les_sommets();
 
-        std::cout << "PREDATEUR :"<< std::endl;
-std::cin>> predateur ;
-        std::cout << "PROIE"<< std::endl;
-std::cin>> proie ;
+    std::cout << "PREDATEUR :"<< std::endl;
+    std::cin>> predateur ;
+    std::cout << "PROIE"<< std::endl;
+    std::cin>> proie ;
 
 
-add_interfaced_edge(arete_max+1,proie, predateur,50);
+    add_interfaced_edge(arete_max+1,proie, predateur,50);
 }
 
 void Graph::afficher_les_sommets()
-  {
-      int  i=0;
-      std::string nom_fichier;
- /*    std::string chaine;
-       for (const auto& elem : m_vertices)
-        {
-            chaine=elem.second.m_interface->m_img.get_pic_name();
-            std::cout<<i << " " << chaine<<std::endl;
-            i++;
-        }
+{
+    int  i=0;
+    std::string nom_fichier;
+    /*    std::string chaine;
+          for (const auto& elem : m_vertices)
+           {
+               chaine=elem.second.m_interface->m_img.get_pic_name();
+               std::cout<<i << " " << chaine<<std::endl;
+               i++;
+           }
 
-    */
-        std::ifstream fichier(nom_fichier="NOM_ESPECE.txt");
+       */
+    std::ifstream fichier(nom_fichier="NOM_ESPECE.txt");
     if(fichier)
     {
         std::string nom;
@@ -590,56 +590,64 @@ void Graph::afficher_les_sommets()
 void Graph::remove_edge(int eidx)
 {
 /// référence vers le Edge à enlever
-Edge &remed=m_edges.at(eidx);
+    Edge &remed=m_edges.at(eidx);
 
-std::cout << "Removing edge " << eidx << " " << remed.m_from << "->" << remed.m_to << " " << remed.m_weight << std::endl;
+   // std::cout << "Removing edge " << eidx << " " << remed.m_from << "->" << remed.m_to << " " << remed.m_weight << std::endl;
 
 /// Tester la cohérence : nombre d'arc entrants et sortants des sommets 1 et 2
-std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
-std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to].m_out.size() << std::endl;
-std::cout << m_edges.size() << std::endl;
+  //  std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
+   // std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to].m_out.size() << std::endl;
+   // std::cout << m_edges.size() << std::endl;
 
 /// test : on a bien des éléments interfacés
-if (m_interface && remed.m_interface)
-{
+    if (m_interface && remed.m_interface)
+    {
 /// Ne pas oublier qu'on a fait ça à l'ajout de l'arc :
-/* EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]); */
-/* m_interface->m_main_box.add_child(ei->m_top_edge); */
-/* m_edges[idx] = Edge(weight, ei); */
+        /* EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]); */
+        /* m_interface->m_main_box.add_child(ei->m_top_edge); */
+        /* m_edges[idx] = Edge(weight, ei); */
 /// Le new EdgeInterface ne nécessite pas de delete car on a un shared_ptr
 /// Le Edge ne nécessite pas non plus de delete car on n'a pas fait de new (sémantique par valeur)
 /// mais il faut bien enlever le conteneur d'interface m_top_edge de l'arc de la main_box du graphe
-m_interface->m_main_box.remove_child( remed.m_interface->m_top_edge );
-}
+        m_interface->m_main_box.remove_child( remed.m_interface->m_top_edge );
+    }
 
 /// Il reste encore à virer l'arc supprimé de la liste des entrants et sortants des 2 sommets to et from !
 /// References sur les listes de edges des sommets from et to
-std::vector<int> &vefrom = m_vertices[remed.m_from].m_out;
-std::vector<int> &veto = m_vertices[remed.m_to].m_in;
-vefrom.erase( std::remove( vefrom.begin(), vefrom.end(), eidx ), vefrom.end() );
-veto.erase( std::remove( veto.begin(), veto.end(), eidx ), veto.end() );
+    std::vector<int> &vefrom = m_vertices[remed.m_from].m_out;
+    std::vector<int> &veto = m_vertices[remed.m_to].m_in;
+    vefrom.erase( std::remove( vefrom.begin(), vefrom.end(), eidx ), vefrom.end() );
+    veto.erase( std::remove( veto.begin(), veto.end(), eidx ), veto.end() );
 
 /// Le Edge ne nécessite pas non plus de delete car on n'a pas fait de new (sémantique par valeur)
 /// Il suffit donc de supprimer l'entrée de la map pour supprimer à la fois l'Edge et le EdgeInterface
 /// mais malheureusement ceci n'enlevait pas automatiquement l'interface top_edge en tant que child de main_box !
-m_edges.erase( eidx );
+    m_edges.erase( eidx );
 
 /// Tester la cohérence : nombre d'arc entrants et sortants des sommets 1 et 2
-std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
-std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to].m_out.size() << std::endl;
-std::cout << m_edges.size() << std::endl;
+   // std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
+   // std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to].m_out.size() << std::endl;
+   // std::cout << m_edges.size() << std::endl;
 
 }
 
-
+/**/
 
 void Graph::remove_vertex(int idx)
 {
-    for(int i=0;i<m_vertices.find(idx)->second.m_in.size();i++)
+    for(int i=0; i<m_vertices.find(idx)->second.m_in.size(); i++)
+    {
+std::cout << i << std::endl ;
         remove_edge( m_vertices.find(idx)->second.m_in[i] );
 
-    for(int i=0;i<m_vertices.find(idx)->second.m_out.size();i++)
+
+    }
+
+    for(int i=0; i<m_vertices.find(idx)->second.m_out.size(); i++)
+    {
+        std::cout << i << std::endl;
         remove_edge( m_vertices.find(idx)->second.m_out[i] );
+    }
 
     Vertex &remed=m_vertices.at(idx);
     if (m_interface && remed.m_interface)
