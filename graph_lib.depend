@@ -227,3 +227,60 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
+1523027286 source:c:\users\louis\desktop\obiwan\graph.cpp
+	"graph.h"
+
+1523022789 c:\users\louis\desktop\obiwan\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	<iostream>
+	"grman/grman.h"
+
+1523022789 c:\users\louis\desktop\obiwan\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1523022789 c:\users\louis\desktop\obiwan\grman\grman_couleurs.h
+
+1523022789 c:\users\louis\desktop\obiwan\grman\coords.h
+	<cmath>
+
+1523022789 c:\users\louis\desktop\obiwan\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523022789 source:c:\users\louis\desktop\obiwan\grman\coords.cpp
+	"coords.h"
+
+1523022789 source:c:\users\louis\desktop\obiwan\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1523022789 source:c:\users\louis\desktop\obiwan\grman\widget.cpp
+	"widget.h"
+
+1523027341 source:c:\users\louis\desktop\obiwan\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
