@@ -227,3 +227,60 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
+1522966129 source:c:\users\pierr\documents\kesuke_miyagi\chewbacca\grman\coords.cpp
+	"coords.h"
+
+1522966129 c:\users\pierr\documents\kesuke_miyagi\chewbacca\grman\coords.h
+	<cmath>
+
+1522966129 source:c:\users\pierr\documents\kesuke_miyagi\chewbacca\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522966129 c:\users\pierr\documents\kesuke_miyagi\chewbacca\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522966129 c:\users\pierr\documents\kesuke_miyagi\chewbacca\grman\grman_couleurs.h
+
+1522966129 c:\users\pierr\documents\kesuke_miyagi\chewbacca\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522966129 source:c:\users\pierr\documents\kesuke_miyagi\chewbacca\grman\widget.cpp
+	"widget.h"
+
+1522966129 source:c:\users\pierr\documents\kesuke_miyagi\chewbacca\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1523015150 c:\users\pierr\documents\kesuke_miyagi\chewbacca\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	<iostream>
+	"grman/grman.h"
+
+1523006757 source:c:\users\pierr\documents\kesuke_miyagi\chewbacca\graph.cpp
+	"graph.h"
+

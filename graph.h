@@ -329,7 +329,6 @@ class Graph
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
 
-
     public:
 
         /// Les constructeurs sont à compléter selon vos besoin...
@@ -360,6 +359,10 @@ class Graph
         void ajouter_arete();
         void afficher_les_sommets();
         void test_remove_edge(int eidx);
+
+      //  int * uneComposanteFortementConnexe (int ordre, int s);
+      //  int ** toutesLesComposantesFortementConnexes (int ordre);
+        void remplir_mat_dadj();
 
 };
 
