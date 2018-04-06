@@ -666,20 +666,23 @@ void Graph::remove_edge(int eidx)
 
 void Graph::remove_vertex(int idx)
 {
-    for(int i=0; i<m_vertices.find(idx)->second.m_in.size(); i++)
+    int maxi;
+    for( int i=0; i<=m_vertices.find(idx)->second.m_in.size(); i++)
     {
-        std::cout << i << std::endl ;
-        remove_edge( m_vertices.find(idx)->second.m_in[i] );
-
-
+        maxi=i;
     }
-
-    for(int i=0; i<m_vertices.find(idx)->second.m_out.size(); i++)
+    for (int i=0; i<maxi;i++)
     {
-        std::cout << i << std::endl;
-        remove_edge( m_vertices.find(idx)->second.m_out[i] );
+        remove_edge( m_vertices.find(idx)->second.m_in[0] );
     }
-
+    for(int i=0; i<=m_vertices.find(idx)->second.m_out.size(); i++)
+    {
+        maxi=i;
+    }
+    for(int i=0; i<maxi;i++)
+    {
+        remove_edge( m_vertices.find(idx)->second.m_out[0] );
+    }
     Vertex &remed=m_vertices.at(idx);
     if (m_interface && remed.m_interface)
     {
@@ -689,5 +692,4 @@ void Graph::remove_vertex(int idx)
     m_vertices.erase( idx );
 
 }
-
 
