@@ -319,13 +319,8 @@ Graph::~Graph()
 
 }
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-void Graph::update(std::string choixfichiersom,std::string choixfichierare)
+void Graph::update(std::string& choixfichiersom,std::string& choixfichierare)
 {
-
-    std::string fichiersommet1="sommetschaine_1.txt";
-    std::string fichierarete1="areteschaine_1.txt";
-    std::string fichiersommet2="sommetschaine_2.txt";
-    std::string fichierarete2="areteschaine_2.txt";
 
     if (!m_interface)
         return;
@@ -346,24 +341,25 @@ void Graph::update(std::string choixfichiersom,std::string choixfichierare)
 
     // AJOUTER UN SOMMET
 
+    //bouton save
     if (m_interface->m_bouton.clicked())
     {
         ecriture_vertex(choixfichiersom);
         ecriture_edge(choixfichierare);
     }
-
+    //ajouter sommer
     if ( m_interface->m_bouton3.clicked() )
     {
         std::cout << "NEW !" << std::endl;
         ajouter_sommet();
     }
-
+    //ajouter arete
     if ( m_interface->m_bouton6.clicked() )
     {
         std::cout << "NEW !" << std::endl;
         ajouter_arete();
     }
-
+    //sup arete
     if ( m_interface->m_bouton7.clicked() )
     {
         int choix;
@@ -372,53 +368,39 @@ void Graph::update(std::string choixfichiersom,std::string choixfichierare)
         remove_edge(choix);
 
     }
-
+    //ouvrir graph 1
     if(m_interface->m_bouton2.clicked())
     {
         m_edges.clear();
         m_vertices.clear();
-        lecture_vertex(fichiersommet1);
-        lecture_edge(fichierarete1);
+        choixfichiersom="sommetschaine_1.txt";
+        choixfichierare="areteschaine_1.txt";
+        lecture_vertex(choixfichiersom);
+        lecture_edge(choixfichierare);
     }
-
+    //ouvrir graph2
     if(m_interface->m_bouton4.clicked())
     {
         m_edges.clear();
         m_vertices.clear();
-
-        lecture_vertex(fichiersommet2);
-        lecture_edge(fichierarete2);
+        choixfichiersom="sommetschaine_2.txt";
+        choixfichierare="areteschaine_2.txt";
+        lecture_vertex(choixfichiersom);
+        lecture_edge(choixfichierare);
     }
-
-    if(m_interface->m_bouton5.clicked())
-    {
-
-
-
-        lecture_vertex(fichiersommet2);
-        lecture_edge(fichierarete2);
-    }
-
+//    //ouvrir graph 3
+//    if(m_interface->m_bouton5.clicked())
+//    {
+//        lecture_vertex(fichiersommet2);
+//        lecture_edge(fichierarete2);
+//    }
+    //suprimer sommet
     if(m_interface->m_bouton8.clicked())
     {
         int sommet;
         std::cout<< "Indice du sommet a sup: ";
         std::cin>> sommet;
         remove_vertex(sommet);
-    }
-
-    if (m_interface->m_bouton2.clicked())
-    {
-        choixfichiersom=fichiersommet1;
-        choixfichierare=fichierarete1;
-
-    }
-
-    if (m_interface->m_bouton4.clicked())
-    {
-        choixfichiersom=fichiersommet2;
-        choixfichierare=fichierarete2;
-
     }
 
 

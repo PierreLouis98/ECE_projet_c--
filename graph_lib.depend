@@ -227,3 +227,60 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
+1523031809 source:c:\users\louis\desktop\bart_simpson\graph.cpp
+	"graph.h"
+
+1523032268 c:\users\louis\desktop\bart_simpson\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	<iostream>
+	"grman/grman.h"
+
+1523029084 c:\users\louis\desktop\bart_simpson\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1523029084 c:\users\louis\desktop\bart_simpson\grman\grman_couleurs.h
+
+1523029084 c:\users\louis\desktop\bart_simpson\grman\coords.h
+	<cmath>
+
+1523029084 c:\users\louis\desktop\bart_simpson\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523029084 source:c:\users\louis\desktop\bart_simpson\grman\coords.cpp
+	"coords.h"
+
+1523029084 source:c:\users\louis\desktop\bart_simpson\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1523029084 source:c:\users\louis\desktop\bart_simpson\grman\widget.cpp
+	"widget.h"
+
+1523029084 source:c:\users\louis\desktop\bart_simpson\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
