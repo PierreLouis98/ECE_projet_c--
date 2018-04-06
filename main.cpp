@@ -14,9 +14,9 @@ int main()
     /// Un exemple de graphe
     Graph g;
 
-   g.lecture_vertex("sommetschaine_2.txt");
-   g.lecture_edge("areteschaine_2.txt");
-
+ g.lecture_vertex("sommetschaine_2.txt");
+ g.lecture_edge("areteschaine_2.txt");
+//g.m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
@@ -29,8 +29,8 @@ int main()
         grman::mettre_a_jour();
     }
 
-    g.ecriture_vertex("sommetschaine_2.txt");
-    g.ecriture_edge("areteschaine_2.txt");
+ //  g.ecriture_vertex("sommetschaine_2.txt");
+ //   g.ecriture_edge("areteschaine_2.txt");
 
     grman::fermer_allegro();
 

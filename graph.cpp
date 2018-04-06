@@ -260,6 +260,19 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton7.add_child(m_bouton_label7);
     m_bouton_label7.set_message("SUPPRIMER UNE ARETE");
 
+     /// HUITIEME BOUTTON CASE:
+       /// On ajoute en haut à droite la boite à boutons
+    m_top_box.add_child( m_boite8 );
+    m_boite8.set_dim(140,30);
+    m_boite8.set_pos(850,130);
+    m_boite8.set_bg_color(FUCHSIACLAIR);
+
+    m_boite8.add_child( m_bouton8);
+    m_bouton8.set_frame(3,3,140,30);
+    m_bouton8.set_bg_color(FUCHSIA);
+
+    m_bouton8.add_child(m_bouton_label8);
+    m_bouton_label8.set_message("SUPPRIMER UN SOMMET");
 
 }
 
@@ -301,6 +314,10 @@ void Graph::make_example()
     add_interfaced_edge(9, 3, 7, 80.0);
 }
 
+Graph::~Graph()
+{
+
+}
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()
 {
@@ -336,14 +353,45 @@ void Graph::update()
     }
 
         if ( m_interface->m_bouton7.clicked() )
-{
+    {
     int choix;
             std::cout << "quelle arete voulez vous supprimer ? " << std::endl;
             std::cin >>choix;
-            test_remove_edge(choix);
+            remove_edge(choix);
+
+    }
+
+    if(m_interface->m_bouton2.clicked())
+    {
+
+            lecture_vertex(fichiersommet1);
+            lecture_edge(fichierarete1);
+    }
+
+        if(m_interface->m_bouton4.clicked())
+    {
 
 
-}
+            lecture_vertex(fichiersommet2);
+            lecture_edge(fichierarete2);
+    }
+
+            if(m_interface->m_bouton5.clicked())
+    {
+            lecture_vertex(fichiersommet2);
+            lecture_edge(fichierarete2);
+    }
+
+            if(m_interface->m_bouton8.clicked())
+    {
+                int sommet;
+            std::cout<< "Indice du sommet a sup: ";
+            std::cin>> sommet;
+            remove_vertex(sommet);
+    }
+
+
+
 
 }
 
@@ -506,13 +554,14 @@ std::cin>> predateur ;
 std::cin>> proie ;
 
 
-add_interfaced_edge(arete_max+1,predateur, proie,50);
+add_interfaced_edge(arete_max+1,proie, predateur,50);
 }
 
 void Graph::afficher_les_sommets()
   {
       int  i=0;
-     std::string chaine;
+      std::string nom_fichier;
+ /*    std::string chaine;
        for (const auto& elem : m_vertices)
         {
             chaine=elem.second.m_interface->m_img.get_pic_name();
@@ -520,10 +569,25 @@ void Graph::afficher_les_sommets()
             i++;
         }
 
+    */
+        std::ifstream fichier(nom_fichier="NOM_ESPECE.txt");
+    if(fichier)
+    {
+        std::string nom;
+
+        for(int i=0; i<16; i++)
+        {
+            fichier >> nom ;
+            std::cout<< i << " "<<nom<<std::endl;
+        }
+        fichier.close();
+    }
+    else
+        std::cout<<"error : "<<nom_fichier<<std::endl;
 }
 
 
-void Graph::test_remove_edge(int eidx)
+void Graph::remove_edge(int eidx)
 {
 /// référence vers le Edge à enlever
 Edge &remed=m_edges.at(eidx);
@@ -566,3 +630,25 @@ std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to]
 std::cout << m_edges.size() << std::endl;
 
 }
+
+
+
+void Graph::remove_vertex(int idx)
+{
+    for(int i=0;i<m_vertices.find(idx)->second.m_in.size();i++)
+        remove_edge( m_vertices.find(idx)->second.m_in[i] );
+
+    for(int i=0;i<m_vertices.find(idx)->second.m_out.size();i++)
+        remove_edge( m_vertices.find(idx)->second.m_out[i] );
+
+    Vertex &remed=m_vertices.at(idx);
+    if (m_interface && remed.m_interface)
+    {
+        m_interface->m_main_box.remove_child( remed.m_interface->m_top_box );
+    }
+
+    m_vertices.erase( idx );
+
+}
+
+
