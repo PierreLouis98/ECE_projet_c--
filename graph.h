@@ -389,7 +389,7 @@ public:
     void afficher_les_sommets();
     void remove_edge(int eidx);
     void remove_vertex(int idx);
-    void evolution_temps();
+    //void evolution_temps();
     void dynamisme();
 
 

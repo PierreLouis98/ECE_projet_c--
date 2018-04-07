@@ -450,7 +450,7 @@ void Graph::update(std::string& choixfichiersom,std::string& choixfichierare)
         convert << m_horloge   ;
         Result = convert.str();
         m_interface->m_bouton_label_horloge.set_message(Result);
-        evolution_temps();
+      //  evolution_temps();
 
 
 
@@ -715,7 +715,7 @@ void Graph::dynamisme()
     //for (const auto& elem : m_vertices)
 }
 
-
+/*
 void Graph::evolution_temps()
 {
     for (std::map<int, Vertex>::iterator it=m_vertices.begin(); it!=m_vertices.end(); it++)
@@ -733,4 +733,5 @@ void Graph::evolution_temps()
             }
         }
     }
-}
+
+}*/

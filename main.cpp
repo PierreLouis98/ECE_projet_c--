@@ -28,12 +28,6 @@ int main()
 {
 
 
-
-
-
-
-
-
         case 1:
             choixsommet="sommetschaine_1.txt";
             choixarete="areteschaine_1.txt";
@@ -53,34 +47,24 @@ int main()
 
 
     grman::init();
-
     g.lecture_vertex(choixsommet);
     g.lecture_edge(choixarete);
-//g.m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
     while ( !key[KEY_ESC] )
     {
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-
         g.update(choixsommet, choixarete);
-
-
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();
 
-
-
     }
-
-
-
     grman::fermer_allegro();
 
     return 0;
 
-// yooooooooooooooooo
+
 }
 END_OF_MAIN();
 
