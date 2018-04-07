@@ -78,6 +78,11 @@ void Vertex::post_update()
     m_value = m_interface->m_slider_value.get_value();
 }
 
+void Vertex::set_value()
+{
+    m_value = m_value -0.2;
+}
+
 
 
 /***************************************************
@@ -148,6 +153,8 @@ void Edge::post_update()
 /// éléments qui seront ensuite ajoutés lors de la mise ne place du Graphe
 GraphInterface::GraphInterface(int x, int y, int w, int h)
 {
+
+
     m_top_box.set_dim(1000,740);
     m_top_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
 
@@ -223,13 +230,11 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_label4.set_message("OPEN 2");
 
 /// CINQUIEME CASE:
-    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite5 );
     m_boite5.set_dim(50,40);
     m_boite5.set_pos(12,162);
     m_boite5.set_bg_color(FUCHSIACLAIR);
 
-    /// Puis un 1er bouton avec un texte
     m_boite5.add_child( m_bouton5 );
     m_bouton5.set_frame(3,3,50,40);
     m_bouton5.set_bg_color(FUCHSIA);
@@ -239,7 +244,6 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 
 
 /// SIXIEME BOUTTON CASE:
-    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite6 );
     m_boite6.set_dim(140,30);
     m_boite6.set_pos(850,50);
@@ -253,7 +257,6 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_label6.set_message("AJOUTER UNE ARETE");
 
     /// SEPTIEME BOUTTON CASE:
-    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite7 );
     m_boite7.set_dim(140,30);
     m_boite7.set_pos(850,90);
@@ -267,7 +270,6 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_label7.set_message("SUPPRIMER UNE ARETE");
 
     /// HUITIEME BOUTTON CASE:
-    /// On ajoute en haut à droite la boite à boutons
     m_top_box.add_child( m_boite8 );
     m_boite8.set_dim(140,30);
     m_boite8.set_pos(850,130);
@@ -279,6 +281,27 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 
     m_bouton8.add_child(m_bouton_label8);
     m_bouton_label8.set_message("SUPPRIMER UN SOMMET");
+
+
+    /// NEUVIEME BOUTON CASE:  HORLOGE PLAY ET VISU DE L'HORLOGE
+
+    m_tool_box.add_child( m_case_horloge );
+    m_case_horloge.set_dim(50,40);
+    m_case_horloge.set_pos(12,600);
+    m_case_horloge.set_bg_color(VERTFLUO);
+
+    m_case_horloge.add_child(m_bouton_horloge);
+    m_bouton_horloge.set_frame(3,3,50,40);
+    m_bouton_horloge.set_bg_color(VERTCLAIR);
+
+    m_case_horloge.add_child(m_bouton_label_horloge);
+    m_bouton_label_horloge.set_message("0");
+
+    ///BOUTON LAUNCH
+    m_tool_box.add_child(m_boite_launch);
+    m_boite_launch.set_pos(12,550);
+    m_boite_launch.set_dim(30,30);
+
 
 }
 
@@ -370,9 +393,9 @@ void Graph::update(std::string& choixfichiersom,std::string& choixfichierare)
     {
         int choix;
         for (const auto& elem : m_edges)
-    {
-        std::cout<< elem.first <<"  "<<elem.second.m_from<<"->"<<elem.second.m_to <<std::endl;
-    }
+        {
+            std::cout<< elem.first <<"  "<<elem.second.m_from<<"->"<<elem.second.m_to <<std::endl;
+        }
         std::cout << "quelle arete voulez vous supprimer ? " << std::endl;
         std::cin >>choix;
         remove_edge(choix);
@@ -404,7 +427,8 @@ void Graph::update(std::string& choixfichiersom,std::string& choixfichierare)
 //        lecture_vertex(fichiersommet2);
 //        lecture_edge(fichierarete2);
 //    }
-    //suprimer sommet
+
+    ///suprimer sommet
     if(m_interface->m_bouton8.clicked())
     {
         int sommet;
@@ -413,9 +437,24 @@ void Graph::update(std::string& choixfichiersom,std::string& choixfichierare)
         remove_vertex(sommet);
     }
 
+    ///HORLOGE
 
 
 
+    if (m_interface->m_boite_launch.get_value()==true)
+    {
+
+        dynamisme();
+        std::string Result;
+        std::ostringstream convert;
+        convert << m_horloge   ;
+        Result = convert.str();
+        m_interface->m_bouton_label_horloge.set_message(Result);
+        evolution_temps();
+
+
+
+    }
 }
 
 /// Aide à l'ajout de sommets interfacés
@@ -633,7 +672,7 @@ void Graph::remove_edge(int eidx)
 
 }
 
-/**/
+/*citer les sources*/
 
 void Graph::remove_vertex(int idx)
 {
@@ -642,7 +681,7 @@ void Graph::remove_vertex(int idx)
     {
         maxi=i;
     }
-    for (int i=0; i<maxi;i++)
+    for (int i=0; i<maxi; i++)
     {
         remove_edge( m_vertices.find(idx)->second.m_in[0] );
     }
@@ -650,7 +689,7 @@ void Graph::remove_vertex(int idx)
     {
         maxi=i;
     }
-    for(int i=0; i<maxi;i++)
+    for(int i=0; i<maxi; i++)
     {
         remove_edge( m_vertices.find(idx)->second.m_out[0] );
     }
@@ -667,8 +706,31 @@ void Graph::remove_vertex(int idx)
 void Graph::dynamisme()
 {
     m_horloge=m_horloge+1;
-    std::cout<<m_horloge<<std::endl;
 
+    //  m_interface->m_case_horloge.
+// set 'Result' to the contents of the stream
+
+    // 'Result' now is equal to "123
     ///equa
     //for (const auto& elem : m_vertices)
+}
+
+
+void Graph::evolution_temps()
+{
+    for (std::map<int, Vertex>::iterator it=m_vertices.begin(); it!=m_vertices.end(); it++)
+    {
+        Vertex &remedv=m_vertices.at(it->first);
+        it->second.set_value();
+        if (remedv.m_in.empty()==false || remedv.m_out.empty()==false)
+        {
+            for (const auto& it_2 :m_edges)
+            {
+                if (it_2.second.m_to == it->first)
+                {
+                    it->second.m_value -= m_vertices[it_2.second.m_from].m_value*it_2.second.m_weight/100;
+                }
+            }
+        }
+    }
 }

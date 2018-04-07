@@ -77,6 +77,7 @@
 #include <memory>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 #include "grman/grman.h"
 
@@ -166,6 +167,7 @@ public:
     /// Voir l'implémentation Graph::update dans le .cpp
     void pre_update();
     void post_update();
+    void set_value();
 };
 
 
@@ -309,8 +311,20 @@ private :
     grman::WidgetButton m_bouton8;
     grman::WidgetText m_bouton_label8;
 
+    ///NEUVIEME BOUTTON HORLOGE
+    grman::WidgetBox m_case_horloge;
+    grman::WidgetButton m_bouton_horloge;
+    grman::WidgetText m_bouton_label_horloge;
+
+
+    /// BOUTON LANCER SIMULATION
+    grman::WidgetCheckBox m_boite_launch;
+
+
     // A compléter éventuellement par des widgets de décoration ou
     // d'édition (boutons ajouter/enlever ...)
+
+
 
 public :
 
@@ -375,8 +389,9 @@ public:
     void afficher_les_sommets();
     void remove_edge(int eidx);
     void remove_vertex(int idx);
-
+    void evolution_temps();
     void dynamisme();
+
 
 };
 
