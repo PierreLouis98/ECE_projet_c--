@@ -1,5 +1,5 @@
-0 30 587 265 renard.jpg
-1 60 620 65 rouge-gorge.jpg
-2 0 51 333 araignee.jpg
-3 50 430 482 papillon.jpg
-4 100 729 520 vegetaux.jpg
+0 0 100 76 renard.jpg
+1 60 610 55 rouge-gorge.jpg
+2 0 61 264 araignee.jpg
+3 50 84 576 papillon.jpg
+4 100 719 510 vegetaux.jpg

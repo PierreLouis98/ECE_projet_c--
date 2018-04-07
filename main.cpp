@@ -33,7 +33,7 @@ int main()
     while ( !key[KEY_ESC] )
     {
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-
+        g.dynamisme();
         g.update(choixsommet, choixarete);
 
 

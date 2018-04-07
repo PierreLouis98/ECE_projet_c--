@@ -40,11 +40,11 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, in
     m_box_label_idx.add_child( m_label_idx );
     m_label_idx.set_message( std::to_string(idx) );
 
-    /// TEST
-    m_top_box.add_child( m_marche );
-    m_marche.set_dim(8, 8);
-    m_marche.set_pos(17,88);
-    m_marche.set_bg_color(ROUGE);
+    /// bouton supp sommet
+    m_top_box.add_child( m_supp_sommet );
+    m_supp_sommet.set_dim(8, 8);
+    m_supp_sommet.set_pos(17,88);
+    m_supp_sommet.set_bg_color(ROUGE);
 }
 
 
@@ -59,6 +59,12 @@ void Vertex::pre_update()
 
     /// Copier la valeur locale de la donnée m_value vers le label sous le slider
     m_interface->m_label_value.set_message( std::to_string( (int)m_value) );
+
+    ///bouton supprimer
+//    if (m_interface->m_supp_sommet.clicked())
+//    {
+//        std::cout<< "bg sa mere"<<std::endl;
+//    }
 }
 
 
@@ -363,6 +369,10 @@ void Graph::update(std::string& choixfichiersom,std::string& choixfichierare)
     if ( m_interface->m_bouton7.clicked() )
     {
         int choix;
+        for (const auto& elem : m_edges)
+    {
+        std::cout<< elem.first <<"  "<<elem.second.m_from<<"->"<<elem.second.m_to <<std::endl;
+    }
         std::cout << "quelle arete voulez vous supprimer ? " << std::endl;
         std::cin >>choix;
         remove_edge(choix);
@@ -572,31 +582,10 @@ void Graph::ajouter_arete()
 
 void Graph::afficher_les_sommets()
 {
-    int  i=0;
-    std::string nom_fichier;
-    /*    std::string chaine;
-          for (const auto& elem : m_vertices)
-           {
-               chaine=elem.second.m_interface->m_img.get_pic_name();
-               std::cout<<i << " " << chaine<<std::endl;
-               i++;
-           }
-
-       */
-    std::ifstream fichier(nom_fichier="NOM_ESPECE.txt");
-    if(fichier)
+    for (const auto& elem : m_vertices)
     {
-        std::string nom;
-
-        for(int i=0; i<16; i++)
-        {
-            fichier >> nom ;
-            std::cout<< i << " "<<nom<<std::endl;
-        }
-        fichier.close();
+        std::cout<< elem.first <<"  "<<elem.second.m_interface->m_img.get_pic_name()<< std::endl;
     }
-    else
-        std::cout<<"error : "<<nom_fichier<<std::endl;
 }
 
 
@@ -675,3 +664,11 @@ void Graph::remove_vertex(int idx)
 
 }
 
+void Graph::dynamisme()
+{
+    m_horloge=m_horloge+1;
+    std::cout<<m_horloge<<std::endl;
+
+    ///equa
+    //for (const auto& elem : m_vertices)
+}

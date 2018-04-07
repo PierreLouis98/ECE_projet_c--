@@ -117,7 +117,7 @@ private :
     grman::WidgetText m_box_label_idx;
 
     /// TEST
-    grman::WidgetBox m_marche;
+    grman::WidgetBox m_supp_sommet;
 
 public :
 
@@ -339,13 +339,16 @@ private :
     std::string fichiersommet2="sommetschaine_2.txt";
     std::string fichierarete2="areteschaine_2.txt";
 
+    ///horloge en seconde
+    int m_horloge;
+
 
 public:
 
     /// Les constructeurs sont à compléter selon vos besoin...
     /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
-    Graph (GraphInterface *interface=nullptr) :
-        m_interface(interface)  {  }
+    Graph (GraphInterface *interface=nullptr,int _horloge=0) :
+        m_interface(interface),m_horloge(_horloge)  {  }
 
     void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
     void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
@@ -372,6 +375,8 @@ public:
     void afficher_les_sommets();
     void remove_edge(int eidx);
     void remove_vertex(int idx);
+
+    void dynamisme();
 
 };
 
