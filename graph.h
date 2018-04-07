@@ -329,6 +329,10 @@ class Graph
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
 
+        /// Matrice d'adjacence (PL)
+        std::vector<std::vector<int>> m_adj;
+
+
     public:
 
         /// Les constructeurs sont à compléter selon vos besoin...
@@ -360,9 +364,10 @@ class Graph
         void afficher_les_sommets();
         void test_remove_edge(int eidx);
 
-      //  int * uneComposanteFortementConnexe (int ordre, int s);
-      //  int ** toutesLesComposantesFortementConnexes (int ordre);
+        std::vector<bool> uneComposanteFortementConnexe (unsigned int ordre, int s);
+        std::vector<std::vector<bool>> toutesLesComposantesFortementConnexes ();
         void remplir_mat_dadj();
+        void afficher_les_comp_fort_connexe();
 
 };
 

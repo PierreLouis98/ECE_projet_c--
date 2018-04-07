@@ -5,6 +5,7 @@
 
 int main()
 {
+
     /// A appeler en 1er avant d'instancier des objets graphiques etc...
     grman::init();
 
@@ -17,6 +18,7 @@ int main()
    g.lecture_vertex("sommetschaine_2.txt");
    g.lecture_edge("areteschaine_2.txt");
 
+   g.afficher_les_comp_fort_connexe();
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
