@@ -80,6 +80,8 @@
 
 #include "grman/grman.h"
 
+
+
 /***************************************************
                     VERTEX
 ****************************************************/
@@ -318,6 +320,9 @@ class GraphInterface
 
 class Graph
 {
+    /// test
+    friend class Vextex;
+
     private :
 
         /// La "liste" des arêtes

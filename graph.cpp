@@ -569,145 +569,151 @@ std::cout << m_edges.size() << std::endl;
 std::vector<bool> Graph::uneComposanteFortementConnexe (unsigned int ordre, int s)
 {
     //Variables locales
-    std::vector<bool> c1(ordre, FALSE); // composantes connexes directes partant de s
-    std::vector<bool> c2(ordre, FALSE);  // composantes connexes indirectes arrivant vers s
-    std::vector<bool> c(ordre, FALSE) ; // composante fortement connexe = c1  c2 à retourner
-    std::vector<bool> marques(ordre, FALSE) ; // tableau dynamique indiquant si les sommets sont marqués ou non
-    unsigned int x, y ; // numéros de sommets intermédiaires des composantes connexes
+    std::vector<bool> c1(ordre, 0); // composantes connexes directes partant de s
+    std::vector<bool> c2(ordre, 0);  // composantes connexes indirectes arrivant vers s
+    std::vector<bool> c(ordre, 0) ; // composante fortement connexe = c1  c2 à retourner
+    std::vector<bool> marques(ordre, 0) ; // tableau dynamique indiquant si les sommets sont marqués ou non
+    std::vector<bool> marques2(ordre, 0) ;
+    std::vector<int> out; // TABLEAU DES ARETES SORTANTES DU SOMMET
+    std::vector<int> in; // TABLEAU DES ARETES ENTRANTES DU SOMMET
+    int from; // INDICE DU SOMMET DE DEPART
+    int to; // INDICE DU SOMMET D'ARRIVEE
+    unsigned int carambar = 0;
+    int carambar2 = 0;
+    unsigned int x, y; // numéros de sommets intermédiaires des composantes connexes
     int ajout; // booléen indiquant si une nouvelle composante connexe est ajoutée
 
-
     // Rendre le sommet s connexe
-    c1[s] = true;
-    c2[s] = true;
+    c1[s] = 1;
+    c2[s] = 1;
     ajout = 1;
 
     // Recherche des composantes connexes partant de s à ajouter dans c1 :
     while (ajout == 1)
     {
-         ajout = 0; // à chaque tour, recherche d’une nouvelle composante connexe à ajouter
-        // Pour tous les sommets x non marqués et connectés en partant de s
-        // Marquer chaque sommet x et connecter les sommets non marqués y adjacents à x
+        ajout = 0;
+
         for (x=0 ; x<ordre ; x++)
         {
+            out = m_vertices[x].m_out;
             if (marques[x]==0 && c1[x]==1)
             {
                 marques[x] = 1 ;
-                for (y=0 ; y<ordre ; y++)
+                for (y=0 ; y< out.size() ; y++)
                 {
-                    if (m_adj[x][y]==1 && marques[y]==0)
+                    to = m_edges[out[y]].m_to;
+                    if (marques[to]==0)
                     {
-                        if (c1[y] == 0)
-                            c1[y] = 1 ;
-                        if ( ajout == 0)
+                            c1[to] = 1 ;
                             ajout = 1 ; // nouvelle composante connexe ajoutée
                     }
-                 }
+                }
             }
         }
     }
+ /*   /// AFFICHER C1
+    for(unsigned int i = 0; i < c1.size(); i++)
+        std::cout << std::endl << "+: " << c1[i] << " ";    */
+
+    /// on remet ajout à 1
+    ajout = 1;
 
     // Recherche des composantes connexes arrivant à s à ajouter dans c2 :
     while (ajout)
     {
-         ajout = 0; // à chaque tour, recherche d’une nouvelle composante connexe à ajouter
-        // Pour tous les sommets x non marqués et connectés en partant de s
-        // Marquer chaque sommet x et connecter les sommets non marqués y adjacents à x
+        ajout = 0;
         for (x=0 ; x<ordre ; x++)
         {
-            if (marques[x]==0 && c2[x]==1)
+            in = m_vertices[x].m_in;
+            if (marques2[x]==0 && c2[x]==1)
             {
-                marques[x] = 1 ;
-                for (y=0 ; y<ordre ; y++)
+                marques2[x] = 1 ;
+                for (y=0 ; y< in.size() ; y++)
                 {
-                    if (m_adj[x][y]== -1 && marques[y]==0)
+                    from = m_edges[in[y]].m_from;
+                    if (marques2[from]==0)
                     {
-                        c2[y] = 1 ;
+                        c2[from] = 1 ;
                         ajout = 1 ; // nouvelle composante connexe ajoutée
                     }
-                 }
+                }
             }
         }
     }
+ /*   /// AFFICHER C2
+    for(unsigned int i = 0; i < c2.size(); i++)
+        std::cout << std::endl << "-: " << c2[i] << " ";    */
 
 
-    // Composante fortement connexe c = intersection de c1 et c2
+    /// RASSEMBLER LES DEUX PARCOURS DU GRAPHE
     for (x=0 ; x<ordre ; x++)
         c[x] = c1[x] & c2[x] ;
-    // Retourner la composante fortement connexe c
 
-    for (unsigned int g = 0; g < c.size(); g++)
+  /*  /// AFFICHER C
+    for(unsigned int i = 0; i < c.size(); i++)
+        std::cout << std::endl << "+ & -: " << c[i] << " "; */
+
+    for(unsigned int i = 0; i < c.size(); i++)
     {
-        if (c[g] == 0 && c[s])
-            c[s] = 0;
-        // ATTENTION AUX ARETES QUI PARTENT ET REJOINGNENT LE MEME SOMMET !!!!
+        if(c[i] == 0)
+            carambar++;
+        else
+            carambar2 = i;
     }
+    if (carambar == c.size()-1 && carambar2 == s)
+        c[s] = 0;
+    /// ATTENTION PB: IL FAUT RAJOUTER UNE CONDITION POUR SAVOIR SI CE SOMMET EST RELIE A LUI-MEME
 
     return c ;
 }
-
 
 std::vector<std::vector<bool>> Graph::toutesLesComposantesFortementConnexes()
 {
     // Variables locales
     std::vector<std::vector<bool>> tabc ; // tableau dynamique des composantes fortement connexes à retourner
-    std::vector<bool> marques ; // tableau dynamique indiquant si les sommets sont marqués ou non
+    std::vector<bool> marq ; // tableau dynamique indiquant si les sommets sont marqués ou non
     std::vector<bool> non_nul;
-    int x, y ; // numéros de sommets intermédiaires comme indices des tableaux
     int blablacar; // nombre de sommets
     int monsieur = 0;
 
     blablacar = m_vertices.size();
 
-    // Initialiser les valeurs de ces tableaux à 0
-
-   // for (int j = 0; j < blablacar; j++)
-     //   tabc.push_back(std::vector<bool>(blablacar,FALSE));
-
+    /// Initialiser les valeurs de ces tableaux à 0
     for (int l = 0; l < blablacar; l++)
-        marques.push_back(FALSE);
+        marq.push_back(0);
 
     // Pour tous les sommets x non marqués
     // Rechercher la composante fortement connexe de x
     // Marquer chaque sommet x et marquer les sommets y connectés à x et non marqués
-    for (x=0 ; x<blablacar ; x++)
+    for (int x=0 ; x<blablacar ; x++)
     {
-        if (!marques[x])
+        if (!marq[x])
         {
-        //    tabc[x] = uneComposanteFortementConnexe(blablacar, x) ;
-        // ATTENTION IL FAUT PUSH_BACK LA PREMIERE LIGNE AUSSI (X)
-  /*          non_nul = uneComposanteFortementConnexe(blablacar, x);
+            non_nul = uneComposanteFortementConnexe(blablacar, x);
             for(int h = 0; h < blablacar; h++)
             {
                 if(non_nul[h] == 0)
                     monsieur ++;
             }
-            if (monsieur != blablacar)*/
+            if (monsieur != blablacar)
                 tabc.push_back(uneComposanteFortementConnexe(blablacar, x));
-        // AFFICHER POUR VOIR
-            marques[x] = 1;
-            for (y=0 ; y<blablacar ; y++)
+            monsieur = 0;
+            marq[x] = 1;
+       //     std::cout << std::endl << "A CE TOUR, X VAUT: " << x << std::endl;
+            for (int y=0 ; y<blablacar ; y++)
             {
-                if (tabc[x][y] && !marques[y])
-                    marques[y] = 1;
+                if (non_nul[y]==1 && marq[y]==0)
+                {
+                    marq[y] = 1;
+                }
             }
-            /* EXEMPLE:
-            (0) (1)<-->(2)
-            0: {1,0,0}
-            1: {0,1,1} */
         }
      }
     return tabc ;
 }
 
-
 void Graph::remplir_mat_dadj()
 {
-    /// test
-    std::vector<bool> grosse_chiasse;
-    std::vector<std::vector<bool>> enorme_chiasse;
-
-   // std::vector<std::vector<int>> m_adj;
     int from, to;
     unsigned int blablacar; // nombre de sommets
 
@@ -721,37 +727,25 @@ void Graph::remplir_mat_dadj()
         from = m_edges[i].m_from;
         to = m_edges[i].m_to;
         m_adj[from][to] = 1;
-        m_adj[to][from] = -1;
+        m_adj[to][from] = 1;
     }
 
     m_adj[0][0] = 0;
 
-    /// AFFICHAGE DE LA MATRICE
+ /*   /// AFFICHAGE DE LA MATRICE
     std::cout << "Matrice d'adjacence:" << std::endl << "x ";
     for (unsigned int w = 0; w < blablacar; w++)
-    {
         std::cout << w << " ";
-    }
+
     std::cout << std::endl;
     for (unsigned int x = 0; x < blablacar; x++)
     {
         std::cout << x << " ";
            for (unsigned int y = 0; y < blablacar; y++)
-        {
             std::cout << m_adj[x][y] << " ";
-        }
         std::cout << std::endl;
-    }
-
-
-   // grosse_chiasse = uneComposanteFortementConnexe (blablacar, 3);
-    enorme_chiasse = toutesLesComposantesFortementConnexes();
-  /*  std::cout << std::endl;
-    std::cout << "Composants fortement connexe du sommet : " << std::endl;
-    for(unsigned int youhou = 0; youhou < grosse_chiasse.size(); youhou++)
-        std::cout << grosse_chiasse[youhou] << std::endl;*/
+    }*/
 }
-
 
 void Graph::afficher_les_comp_fort_connexe()
 {
@@ -760,11 +754,17 @@ void Graph::afficher_les_comp_fort_connexe()
 
     resultat = toutesLesComposantesFortementConnexes();
 
+    if(resultat.size() == 1)
+        std::cout << "Le graphe est fortement connexe" << std::endl;
+    else if(resultat.size() == 0)
+        std::cout << "Le graphe n'est pas fortement connexe et il n'a aucune composante fortement connexe" << std::endl;
+    else
+        std::cout << "Le graphe n'est pas fortement connexe" << std::endl;
 
     for (unsigned int i = 0; i < resultat.size(); i++)
     {
-        std::cout << i << " composante: { ";
-        for (unsigned int j = 0; j < resultat.size(); j++)
+        std::cout << i + 1 << " composante: { ";
+        for (unsigned int j = 0; j < m_vertices.size(); j++)
         {
             std::cout << resultat[i][j];
             std::cout << " ";
@@ -773,3 +773,6 @@ void Graph::afficher_les_comp_fort_connexe()
     }
 }
 
+
+/// 2) ATTENTION AUX COMPOSANTES QUI NE CONTIENNENT QU'UN SOMMET:
+/// SOIT CE SOMMET EST RELIE A LUI MEME ET IL FAUT LE GARDER
