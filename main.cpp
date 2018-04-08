@@ -15,8 +15,7 @@ int main()
     Graph g;
 
 
-
-    int choix,choix2;
+    int choix;
     std::string choixsommet;
     std::string choixarete;
 
@@ -49,6 +48,7 @@ int main()
     grman::init();
     g.lecture_vertex(choixsommet);
     g.lecture_edge(choixarete);
+    g.afficher_les_comp_fort_connexe();
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
@@ -60,6 +60,7 @@ int main()
         grman::mettre_a_jour();
 
     }
+
     grman::fermer_allegro();
 
     return 0;

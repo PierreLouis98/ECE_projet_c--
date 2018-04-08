@@ -399,3 +399,61 @@
 	<iostream>
 	"graph.h"
 
+1523201900 source:c:\users\pierr\documents\kesuke_miyagi\comte_dooku\grman\coords.cpp
+	"coords.h"
+
+1523201900 c:\users\pierr\documents\kesuke_miyagi\comte_dooku\grman\coords.h
+	<cmath>
+
+1523201900 source:c:\users\pierr\documents\kesuke_miyagi\comte_dooku\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1523201900 c:\users\pierr\documents\kesuke_miyagi\comte_dooku\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1523201900 c:\users\pierr\documents\kesuke_miyagi\comte_dooku\grman\grman_couleurs.h
+
+1523201900 c:\users\pierr\documents\kesuke_miyagi\comte_dooku\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523201900 source:c:\users\pierr\documents\kesuke_miyagi\comte_dooku\grman\widget.cpp
+	"widget.h"
+
+1523202748 source:c:\users\pierr\documents\kesuke_miyagi\comte_dooku\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1523202534 c:\users\pierr\documents\kesuke_miyagi\comte_dooku\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	<iostream>
+	<sstream>
+	"grman/grman.h"
+
+1523202693 source:c:\users\pierr\documents\kesuke_miyagi\comte_dooku\graph.cpp
+	"graph.h"
+

@@ -356,6 +356,9 @@ private :
     ///horloge en seconde
     int m_horloge;
 
+    /// Matrice d'adjacence (PL)
+    std::vector<std::vector<int>> m_adj;
+
 
 public:
 
@@ -391,6 +394,11 @@ public:
     void remove_vertex(int idx);
     //void evolution_temps();
     void dynamisme();
+
+    std::vector<bool> uneComposanteFortementConnexe (unsigned int ordre, int s);
+    std::vector<std::vector<bool>> toutesLesComposantesFortementConnexes ();
+    void remplir_mat_dadj();
+    void afficher_les_comp_fort_connexe();
 
 
 };
