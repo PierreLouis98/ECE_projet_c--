@@ -5,25 +5,19 @@
 
 int main()
 {
-
-
-
     /// Le nom du répertoire où se trouvent les images à charger
     grman::set_pictures_path("pics");
-
     /// Un exemple de graphe
     Graph g;
-
-
-
     int choix;
     std::string choixsommet;
     std::string choixarete;
 
+
     std::cout << "quel graphe voulez vous ouvrir : 1, 2 ou 3 ?"<< std::endl;
-
-
     std::cin>>choix;
+
+
     switch (choix)
     {
     case 1:
@@ -39,15 +33,20 @@ int main()
         choixarete="areteschaine_3.txt";
         break;
     }
-/// A appeler en 1er avant d'instancier des objets graphiques etc...
+
 
     grman::init();
+
+
+
+    /////////////////////////ON LIT LES FICHIERS CHOISIS PAR L'UTILISATEUR///////////////////////////
+
     g.lecture_vertex(choixsommet);
     g.lecture_edge(choixarete);
 
+/////////////////////////PUIS ON LANCE ALLEGRO ///////////////////////////////////////
 
-    /// Vous gardez la main sur la "boucle de jeu"
-    /// ( contrairement à des frameworks plus avancés )
+
     while ( !key[KEY_ESC] )
     {
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
@@ -58,17 +57,13 @@ int main()
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();
 
-
-
     }
-
-
 
     grman::fermer_allegro();
 
     return 0;
 
-// yooooooooooooooooo
+
 }
 END_OF_MAIN();
 
