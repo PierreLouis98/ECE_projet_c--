@@ -1,0 +1,16 @@
+0 10.2337 510 570 escargot.jpg 0.001
+1 61.0751 204 541 vegetaux.jpg 0.001
+2 58.8217 9 572 graine.jpg 0.001
+3 31.487 366 445 lombric.jpg 0.001
+4 50.9012 -5 2 renard.jpg 0.001
+5 29.4511 10 194 lapin.jpg 0.001
+6 36.5208 543 378 herisson.jpg 0.001
+7 59.8889 767 365 mulot.jpg 0.001
+8 0 596 -5 chouette.jpg 0.001
+9 59.6789 704 598 glands.jpg 0.001
+10 33.7371 80 350 chenille.jpg 0.001
+11 44.7742 469 145 sanglier.jpg 0.001
+12 71.4677 353 268 ecureuil.jpg 0.001
+13 57.2939 223 -1 rapace.jpg 0.001
+14 35.5743 595 248 vipere.jpg 0.001
+15 25.0035 209 171 mesange.jpg 0.001

@@ -1,11 +1,11 @@
-0 4.28571 -4 4 phyloplancton.jpg
-1 60 313 -1 zooplancton.jpg
-2 57.1429 12 172 petits-poissons.jpg
-3 50 292 474 krill.jpg
-4 100 10 467 lion-de-mer.jpg
-5 55.7143 493 54 phoque.jpg
-6 60 114 603 morse.jpg
-7 50 700 190 macareux.jpg
-8 0 712 395 renard-arctique.jpg
-9 100 451 550 ours-polaire.jpg
-10 100 717 558 inuit.jpg
+0 67 4 4 phyloplancton.jpg 1000
+1 100 313 -1 zooplancton.jpg 0.001
+2 67 12 172 petits-poissons.jpg 0.01
+3 100 292 474 krill.jpg 0.001
+4 100 10 467 lion-de-mer.jpg 0.001
+5 100 493 54 phoque.jpg 0.001
+6 100 114 603 morse.jpg 0.001
+7 100 700 190 macareux.jpg 0.001
+8 0 712 395 renard-arctique.jpg 0.001
+9 100 451 550 ours-polaire.jpg 0.001
+10 100 717 558 inuit.jpg 0.001

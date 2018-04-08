@@ -284,10 +284,10 @@
 	<iostream>
 	"graph.h"
 
-1523041849 source:c:\users\louis\desktop\lisa_simpson\graph.cpp
+1523204880 source:c:\users\louis\desktop\lisa_simpson\graph.cpp
 	"graph.h"
 
-1523041950 c:\users\louis\desktop\lisa_simpson\graph.h
+1523119049 c:\users\louis\desktop\lisa_simpson\graph.h
 	<vector>
 	<map>
 	<string>
@@ -336,7 +336,65 @@
 1523032798 source:c:\users\louis\desktop\lisa_simpson\grman\widget.cpp
 	"widget.h"
 
-1523041423 source:c:\users\louis\desktop\lisa_simpson\main.cpp
+1523113595 source:c:\users\louis\desktop\lisa_simpson\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1523209697 source:c:\users\josep\desktop\lisa_simpson\graph.cpp
+	"graph.h"
+
+1523208615 c:\users\josep\desktop\lisa_simpson\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	<iostream>
+	<sstream>
+	"grman/grman.h"
+
+1523032798 c:\users\josep\desktop\lisa_simpson\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1523032798 c:\users\josep\desktop\lisa_simpson\grman\grman_couleurs.h
+
+1523032798 c:\users\josep\desktop\lisa_simpson\grman\coords.h
+	<cmath>
+
+1523032798 c:\users\josep\desktop\lisa_simpson\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523032798 source:c:\users\josep\desktop\lisa_simpson\grman\coords.cpp
+	"coords.h"
+
+1523032798 source:c:\users\josep\desktop\lisa_simpson\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1523032798 source:c:\users\josep\desktop\lisa_simpson\grman\widget.cpp
+	"widget.h"
+
+1523209260 source:c:\users\josep\desktop\lisa_simpson\main.cpp
 	"grman/grman.h"
 	<iostream>
 	"graph.h"

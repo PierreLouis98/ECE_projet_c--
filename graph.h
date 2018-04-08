@@ -77,6 +77,7 @@
 #include <memory>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 #include "grman/grman.h"
 
@@ -146,6 +147,12 @@ private :
     /// un exemple de donnée associée à l'arc, on peut en ajouter d'autres...
     double m_value;
 
+    ///capacité de portage de l'environnement
+    int m_k;
+
+    /// coef de reproduction
+    float m_r;
+
     /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
     std::shared_ptr<VertexInterface> m_interface = nullptr;
 
@@ -158,14 +165,18 @@ public:
 
     /// Les constructeurs sont à compléter selon vos besoin...
     /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
-    Vertex (double value=0, VertexInterface *interface=nullptr) :
-        m_value(value), m_interface(interface)  {  }
+    Vertex (double value=0, VertexInterface *interface=nullptr, int _k=0, float _r=0.001) :
+        m_value(value), m_interface(interface), m_k(_k),m_r(_r)  {  }
 
     /// Vertex étant géré par Graph ce sera la méthode update de graph qui appellera
     /// le pre_update et post_update de Vertex (pas directement la boucle de jeu)
     /// Voir l'implémentation Graph::update dans le .cpp
     void pre_update();
     void post_update();
+    void set_k(int _k)
+    {
+        m_k=_k;
+    }
 };
 
 
@@ -309,6 +320,21 @@ private :
     grman::WidgetButton m_bouton8;
     grman::WidgetText m_bouton_label8;
 
+
+    ///NEUVIEME BOUTTON HORLOGE
+    grman::WidgetBox m_case_horloge;
+    grman::WidgetText m_bouton_label_horloge;
+
+
+    /// BOUTON LANCER SIMULATION
+    grman::WidgetCheckBox m_boite_launch;
+
+    /// BOUTTON LANCER FORTE CONNEXITE
+    grman::WidgetBox m_boite_connex;
+    grman::WidgetButton m_bouton_connex;
+    grman::WidgetText m_bouton_label_connex;
+
+
     // A compléter éventuellement par des widgets de décoration ou
     // d'édition (boutons ajouter/enlever ...)
 
@@ -334,13 +360,16 @@ private :
     /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
     std::shared_ptr<GraphInterface> m_interface = nullptr;
 
-    std::string fichiersommet1="sommetschaine_1.txt";
-    std::string fichierarete1="areteschaine_1.txt";
-    std::string fichiersommet2="sommetschaine_2.txt";
-    std::string fichierarete2="areteschaine_2.txt";
 
     ///horloge en seconde
     int m_horloge;
+
+    ///coef de rythme
+
+
+    /// Matrice d'adjacence (PL)
+    std::vector<std::vector<int>> m_adj;
+
 
 
 public:
@@ -377,6 +406,11 @@ public:
     void remove_vertex(int idx);
 
     void dynamisme();
+
+    std::vector<bool> uneComposanteFortementConnexe (unsigned int ordre, int s);
+    std::vector<std::vector<bool>> toutesLesComposantesFortementConnexes ();
+    void remplir_mat_dadj();
+    void afficher_les_comp_fort_connexe();
 
 };
 
